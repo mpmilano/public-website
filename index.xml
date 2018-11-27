@@ -11,6 +11,15 @@
     <atom:link href="/~milano/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>A Language for Mixing Consistency in Geodistributed Transactions: Technical Report</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/mixt-tr/</link>
+      <pubDate>Thu, 22 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/mixt-tr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>MixT talk</title>
       <link>http://www.cs.cornell.edu/~milano/talk/mixt/</link>
       <pubDate>Wed, 20 Jun 2018 00:00:00 -0400</pubDate>
@@ -125,7 +134,7 @@
     </item>
     
     <item>
-      <title>Mixing Consistency in Geodistributed Transactions: Technical Report</title>
+      <title>Mixing Consistency in Geodistributed Transactions: Technical Report (old)</title>
       <link>http://www.cs.cornell.edu/~milano/publication/mm-16-tr/</link>
       <pubDate>Sat, 01 Oct 2016 00:00:00 -0400</pubDate>
       
