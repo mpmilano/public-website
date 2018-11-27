@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matthew Milano on Matthew Milano</title>
+    <link>http://www.cs.cornell.edu/~milano/</link>
+    <description>Recent content in Matthew Milano on Matthew Milano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
+    <atom:link href="/~milano/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MixT talk</title>
+      <link>http://www.cs.cornell.edu/~milano/talk/mixt/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/talk/mixt/</guid>
+      <description>&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;em&gt;Slides&lt;/em&gt; feature and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mixing Consistency with MixT: Technical Report Available!</title>
+      <link>http://www.cs.cornell.edu/~milano/post/mixt-tr/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/post/mixt-tr/</guid>
+      <description>
+
+&lt;h2 id=&#34;it-s-been-a-long-wait&#34;&gt;It&amp;rsquo;s been a long wait.&lt;/h2&gt;
+
+&lt;p&gt;It was our great pleasure to present the &lt;a href=&#34;https://dl.acm.org/citation.cfm?id=3192375&#34; target=&#34;_blank&#34;&gt;MixT paper&lt;/a&gt; at this year&amp;rsquo;s PLDI, but we always felt that the conference version was missing a few details and extra explanations which (we sincerely hope) would go a long way towards explaining the MixT approach to distributed transactions.  So it makes us overjoyed to finally make the extended &lt;a href=&#34;../../files/mixt-tr.pdf&#34;&gt;Technical Report&lt;/a&gt; of the MixT paper available to the public.&lt;/p&gt;
+
+&lt;h2 id=&#34;so-what-s-this-mixt-thing-all-about-anyway&#34;&gt;So what&amp;rsquo;s this MixT thing all about, anyway?&lt;/h2&gt;
+
+&lt;p&gt;MixT is a domain-specific programming language for writing transactions, embedded into C++.  What makes MixT unique is its approach to consistency and transaction isolation: rather than associate consistency with operations, MixT &lt;strong&gt;associates consistency with data&lt;/strong&gt; and expects programmers to use &lt;strong&gt;multiple consistency models&lt;/strong&gt; in the same application.  With MixT:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Transactions compile down to a sequence of &lt;strong&gt;standard, single-consistency transactions&lt;/strong&gt; appropriate for execution on any number of SQL/NoSQL/NewSQL datastores.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;An &lt;strong&gt;information-flow type system&lt;/strong&gt; keeps your consistent data safe from corruption by less-consistent data.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;You can use &lt;strong&gt;multiple consistency models&lt;/strong&gt; even within a &lt;strong&gt;single&lt;/strong&gt; transaction.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;A single transaction can execute across &lt;strong&gt;multiple independent datastores&lt;/strong&gt;, while still &lt;strong&gt;preserving write atomicity&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Transactions are &lt;strong&gt;expressive&lt;/strong&gt;; you can define &lt;strong&gt;custom operations&lt;/strong&gt; as methods, use while-loops and if-statements, and generally write code that looks and feels like the surrounding C++.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;but-the-best-explanation-is-the-paper-https-dl-acm-org-citation-cfm-id-3192375&#34;&gt;But the best explanation is &lt;a href=&#34;https://dl.acm.org/citation.cfm?id=3192375&#34; target=&#34;_blank&#34;&gt;the paper&lt;/a&gt;.&lt;/h3&gt;
+
+&lt;h2 id=&#34;what-s-new-for-the-tr&#34;&gt;What&amp;rsquo;s new for the TR?&lt;/h2&gt;
+
+&lt;p&gt;The technical report contains many details not previously seen in the MixT paper!  You can expect to see extended rules for typing and translation, an all-new section featuring correctness arguments and read witnesses, and a loose formalization of how to lift isolation levels (in the database sense) to distributed consistency models.  And more!&lt;/p&gt;
+
+&lt;h3 id=&#34;you-can-find-it-here-files-mixt-tr-pdf&#34;&gt;You can find it &lt;a href=&#34;../../files/mixt-tr.pdf&#34;&gt;here&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Happy reading!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Programming Replicated, Distributed Systems</title>
+      <link>http://www.cs.cornell.edu/~milano/project/languages-for-distribution/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/project/languages-for-distribution/</guid>
+      <description>
+
+&lt;h2 id=&#34;concurrency-makes-everything-hard&#34;&gt;Concurrency makes everything hard&lt;/h2&gt;
+
+&lt;p&gt;For many programmers, writing efficient concurrent datastructures is an exercise in scouring github and hoping that code quality and number of &amp;ldquo;stars&amp;rdquo; really do correlate. When it comes time to &lt;em&gt;write&lt;/em&gt; your own concurrent datastructures, queue many sleepless nights spent worrying about whether this or that particular concurrency primitive is fast enough, or correct enough, to make the code work at the speeds you need.  If there is any solace felt, it comes from the once-safe assumption of strong consistency; that, no matter how many races we might have missed, at least the result of the program will be &lt;em&gt;some&lt;/em&gt; valid interleaving of concurrent threads.&lt;/p&gt;
+
+&lt;h3 id=&#34;this-assumption-is-wrong&#34;&gt;This assumption is wrong.&lt;/h3&gt;
+
+&lt;p&gt;Because hardware isn&amp;rsquo;t as helpful as it once was.  Modern &lt;a href=&#34;http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0553a/CHDBIJJE.html&#34; target=&#34;_blank&#34;&gt;processor&lt;/a&gt; and &lt;a href=&#34;https://en.cppreference.com/w/cpp/language/memory_model&#34; target=&#34;_blank&#34;&gt;language&lt;/a&gt; memory models reduce the available consistency assumptions so much that it&amp;rsquo;s possible to &lt;a href=&#34;https://www.cl.cam.ac.uk/~pes20/cpp/notes42.html&#34; target=&#34;_blank&#34;&gt;read values which were never written&lt;/a&gt;, justify your own reads, and arbitrarily miss updates from concurrent threads. Simple patterns, like initializing an object and then handing it off directly to a newly-spawned thread, are &lt;em&gt;simply not guaranteed to work&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;and-distribution-makes-it-harder&#34;&gt;And distribution makes it harder.&lt;/h3&gt;
+
+&lt;p&gt;In a distributed setting, the costs of using stronger consistency models grow exponentially with the number of replicas in your system (essential for fault-tolerance) and the distance between these replicas (essential for global performance and availability).  While there are a lot of good people doing excellent work to try and bring strongly-consistent shared data to a geo-distributed setting, the fundamentals are still not in our favor.  And, far more urgently, major parts of the web have already moved to weaker consistency models.&lt;/p&gt;
+
+&lt;h3 id=&#34;we-re-going-to-fix-that-or-at-least-help&#34;&gt;We&amp;rsquo;re going to fix that. Or at least help.&lt;/h3&gt;
+
+&lt;p&gt;This project aims to bring the power of programming languages to bear on the world of weakly-consistent distributed programming.  Our secret sauce is &lt;a href=&#34;https://dl.acm.org/citation.cfm?id=360056&#34; target=&#34;_blank&#34;&gt;information flow&lt;/a&gt;, a key technology borrowed from the security literature and applied with new life here.  Using information flow, it&amp;rsquo;s possible to ensure that weakly-consistent observations can never unduly influence strongly-consistent computations; it makes the points of crossover explicit, statically requiring that programmers upgrade the consistency of their observations when appropriate.&lt;/p&gt;
+
+&lt;p&gt;This technique is powerful; for more details, see our &lt;a href=&#34;../../publication/mixt&#34;&gt;paper&lt;/a&gt;  from &lt;a href=&#34;https://conf.researchr.org/home/pldi-2018&#34; target=&#34;_blank&#34;&gt;PLDI 2018&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;and-we-re-not-done-yet&#34;&gt;And we&amp;rsquo;re not done yet.&lt;/h3&gt;
+
+&lt;p&gt;There are a lot of excellent ideas out there that have their own ways of ensuring weak consistency doesn&amp;rsquo;t mean weak guarantees; everything from &lt;a href=&#34;https://link.springer.com/chapter/10.1007%2F978-3-642-24550-3_29&#34; target=&#34;_blank&#34;&gt;data&lt;/a&gt; &lt;a href=&#34;https://link.springer.com/chapter/10.1007/978-3-642-31057-7_14&#34; target=&#34;_blank&#34;&gt;types&lt;/a&gt; with &lt;a href=&#34;https://dl.acm.org/citation.cfm?id=2502326&#34; target=&#34;_blank&#34;&gt;guaranteed&lt;/a&gt; &lt;a href=&#34;https://dl.acm.org/citation.cfm?id=2790525&#34; target=&#34;_blank&#34;&gt;convergence&lt;/a&gt;, to techniques for guaranteeing &lt;a href=&#34;https://dl.acm.org/citation.cfm?id=2737981&#34; target=&#34;_blank&#34;&gt;only&lt;/a&gt; what &lt;a href=&#34;https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-liu_jed.pdf&#34; target=&#34;_blank&#34;&gt;computations&lt;/a&gt; &lt;a href=&#34;https://dl.acm.org/citation.cfm?id=2723720&#34; target=&#34;_blank&#34;&gt;need&lt;/a&gt;, and a whole host in-between.  We believe that there are many unrealized synergies between our established information-flow approach and these robust alternate methods.  We&amp;rsquo;re taking advantage of these synergies to build a new language for programming distributed systems.&lt;/p&gt;
+
+&lt;h3 id=&#34;scoped-strong-semantic-consistency-is-the-goal&#34;&gt;Scoped strong semantic consistency is the goal.&lt;/h3&gt;
+
+&lt;p&gt;This property comes under a lot of different names; you may have heard it as strong eventual consistency, or convergence, or full-program commutativity to name just a few.  Simply stated, this is the property that all observable effects generated by your program under weakly-consistent, asynchronous replication&amp;mdash;any way in which it interacts with the outside world&amp;mdash;would still be generated under a perfectly-consistent, sequential execution (given the same environment and inputs).  It says that every witness to weakly-consistent replication, every race condition, every speculative execution is in fact justified; we have, somehow, always &amp;ldquo;guessed&amp;rdquo; right.  This property is exceptionally strong (in fact, it&amp;rsquo;s likely too strong), but it makes a noble goal; we want to empower programmers with the guarantee that their &lt;em&gt;entire program&lt;/em&gt; will be consistent by default, while providing them the flexibility to break these guarantees with clear-eyed intention; and we want to preserve these guarantees across the great majority of the program even in the presence of small intentional violations.  A new programming paradigm is coming, as fast as we can write it down.  Watch this space!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MixT: A Language for Mixing Consistency in Geodistributed Transactions</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/mixt/</link>
+      <pubDate>Fri, 01 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/mixt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Building Smart Memories and Cloud Services with Derecho</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/derecho-tr/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/derecho-tr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixing Consistency in Geodistributed Transactions: Technical Report</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/mm-16-tr/</link>
+      <pubDate>Sat, 01 Oct 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/mm-16-tr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Coalgebraic Decision Procedure for NetKAT</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/netkat/</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/netkat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Derecho: Programming the Datacenter</title>
+      <link>http://www.cs.cornell.edu/~milano/project/derecho/</link>
+      <pubDate>Mon, 01 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/project/derecho/</guid>
+      <description>
+
+&lt;h2 id=&#34;in-datacenter-replication-just-got-a-lot-faster&#34;&gt;In-datacenter replication just got a lot faster.&lt;/h2&gt;
+
+&lt;p&gt;Derecho is a new framework for building replicated, fault-tolerant distributed systems within a datacenter.  At its core, Derecho provides a best-in-class consistent multicast abstraction, sending multi-target messages at blazing speed and in lock-step.  Derecho&amp;rsquo;s object-oriented programming layer makes it easy to build any distributed application straight from a standard, single-machine approach; individual classes are automatically replicated in user-specified configurations, and a straightforward, type-safe RPC mechanism allows easy communication between replica groups.&lt;/p&gt;
+
+&lt;p&gt;Derecho realizes a major observation: that programming a distributed system with an eye towards protocol convergence (or &lt;a href=&#34;../languages-for-distribution&#34;&gt;strong eventual consistency&lt;/a&gt;) yields significant performance benefits by delaying consensus events for as long as possible.  Derecho&amp;rsquo;s core protocols are written in a simple convergent programming language (watch this space), giving us constructive confidence that our protocols never diverge &amp;ndash; which avoids much of the proof (and correctness) burden of traditional distributed system design.&lt;/p&gt;
+
+&lt;p&gt;This project is a major collaboration between several groups at Cornell University; the group is expanding every day, but has so far included Sagar Jha, Jonathan Behrens, Theo Gkountouvas, Matthew Milano, Weijia Song, Edward Tremel, Sydney Zink, Kenneth P. Birman, Robbert Van Renesse, and the students of CS4999.  For more detail, you should check the &lt;a href=&#34;https://derecho-project.github.io/&#34; target=&#34;_blank&#34;&gt;project website&lt;/a&gt; or read about it on &lt;a href=&#34;http://thinkingaboutdistributedsystems.blogspot.com/&#34; target=&#34;_blank&#34;&gt;Ken Birman&amp;rsquo;s blog&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python: The Full Monty</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/python/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 -0500</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/python/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

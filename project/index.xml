@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Matthew Milano</title>
+    <link>http://www.cs.cornell.edu/~milano/project/</link>
+    <description>Recent content in Projects on Matthew Milano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 20 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.cs.cornell.edu/~milano/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Programming Replicated, Distributed Systems</title>
+      <link>http://www.cs.cornell.edu/~milano/project/languages-for-distribution/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/project/languages-for-distribution/</guid>
+      <description>Concurrency makes everything hard For many programmers, writing efficient concurrent datastructures is an exercise in scouring github and hoping that code quality and number of &amp;ldquo;stars&amp;rdquo; really do correlate. When it comes time to write your own concurrent datastructures, queue many sleepless nights spent worrying about whether this or that particular concurrency primitive is fast enough, or correct enough, to make the code work at the speeds you need. If there is any solace felt, it comes from the once-safe assumption of strong consistency; that, no matter how many races we might have missed, at least the result of the program will be some valid interleaving of concurrent threads.</description>
+    </item>
+    
+    <item>
+      <title>Derecho: Programming the Datacenter</title>
+      <link>http://www.cs.cornell.edu/~milano/project/derecho/</link>
+      <pubDate>Mon, 01 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/project/derecho/</guid>
+      <description>In-datacenter replication just got a lot faster. Derecho is a new framework for building replicated, fault-tolerant distributed systems within a datacenter. At its core, Derecho provides a best-in-class consistent multicast abstraction, sending multi-target messages at blazing speed and in lock-step. Derecho&amp;rsquo;s object-oriented programming layer makes it easy to build any distributed application straight from a standard, single-machine approach; individual classes are automatically replicated in user-specified configurations, and a straightforward, type-safe RPC mechanism allows easy communication between replica groups.</description>
+    </item>
+    
+  </channel>
+</rss>

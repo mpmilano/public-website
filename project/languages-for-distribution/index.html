@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.1.1">
+  <meta name="generator" content="Hugo 0.51" />
+  <meta name="author" content="Matthew Milano">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="Distributed Languages frequently either fail to capture replication, or insist in high-latency lockstep state machine replication.  Storage systems which avoid both pitfalls often do so by weakening consistency. We try to reign in weak consistency and capture replication and concurrency, all while constructively avoiding races and allowing safe, loosely-synchronized replication.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://www.cs.cornell.edu/~milano/project/languages-for-distribution/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3f51b5">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/~milano/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="http://www.cs.cornell.edu/~milano/index.xml" type="application/rss+xml" title="Matthew Milano">
+  <link rel="feed" href="http://www.cs.cornell.edu/~milano/index.xml" type="application/rss+xml" title="Matthew Milano">
+  
+
+  <link rel="manifest" href="/~milano/site.webmanifest">
+  <link rel="icon" type="image/png" href="/~milano/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/~milano/img/icon-192.png">
+
+  <link rel="canonical" href="http://www.cs.cornell.edu/~milano/project/languages-for-distribution/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@mbpmilano">
+  <meta property="twitter:creator" content="@mbpmilano">
+  
+  <meta property="og:site_name" content="Matthew Milano">
+  <meta property="og:url" content="http://www.cs.cornell.edu/~milano/project/languages-for-distribution/">
+  <meta property="og:title" content="Programming Replicated, Distributed Systems | Matthew Milano">
+  <meta property="og:description" content="Distributed Languages frequently either fail to capture replication, or insist in high-latency lockstep state machine replication.  Storage systems which avoid both pitfalls often do so by weakening consistency. We try to reign in weak consistency and capture replication and concurrency, all while constructively avoiding races and allowing safe, loosely-synchronized replication.">
+  
+  
+    
+  <meta property="og:image" content="http://www.cs.cornell.edu/~milano/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-06-20T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-11-27T12:57:46-05:00">
+  
+
+  
+
+  
+
+  <title>Programming Replicated, Distributed Systems | Matthew Milano</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header fixed-top">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/~milano/">Matthew Milano</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/~milano/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/~milano/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/~milano/#awards">
+            
+            <span>Awards</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/~milano/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/~milano/#publications">
+            
+            <span>Reports</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/~milano/#talks">
+            
+            <span>Talks</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/~milano/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/~milano/#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article article-project" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Programming Replicated, Distributed Systems</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Matthew Milano">
+  </span>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2018-06-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-11-27 12:57:46 -0500 EST" itemprop="dateModified">
+      Nov 27, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Matthew Milano">
+  </span>
+
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/~milano/project/languages-for-distribution/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Programming%20Replicated%2c%20Distributed%20Systems&amp;url=http%3a%2f%2fwww.cs.cornell.edu%2f~milano%2fproject%2flanguages-for-distribution%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=http%3a%2f%2fwww.cs.cornell.edu%2f~milano%2fproject%2flanguages-for-distribution%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fwww.cs.cornell.edu%2f~milano%2fproject%2flanguages-for-distribution%2f&amp;title=Programming%20Replicated%2c%20Distributed%20Systems"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=http%3a%2f%2fwww.cs.cornell.edu%2f~milano%2fproject%2flanguages-for-distribution%2f&amp;title=Programming%20Replicated%2c%20Distributed%20Systems"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+	  href="#"
+	  data-contact="bGUtZW1haWxAdGhlLWRvbWFpbi5jb20="
+      data-subj="QW4gQW1hemluZyBTdWJqZWN0"
+      onfocus="this.href = 'mailto:' + atob(this.dataset.contact) + '?subject=' + atob(this.dataset.subj || '')">
+        <i class="fas fa-envelope"></i>
+      </a>
+	  
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="concurrency-makes-everything-hard">Concurrency makes everything hard</h2>
+
+<p>For many programmers, writing efficient concurrent datastructures is an exercise in scouring github and hoping that code quality and number of &ldquo;stars&rdquo; really do correlate. When it comes time to <em>write</em> your own concurrent datastructures, queue many sleepless nights spent worrying about whether this or that particular concurrency primitive is fast enough, or correct enough, to make the code work at the speeds you need.  If there is any solace felt, it comes from the once-safe assumption of strong consistency; that, no matter how many races we might have missed, at least the result of the program will be <em>some</em> valid interleaving of concurrent threads.</p>
+
+<h3 id="this-assumption-is-wrong">This assumption is wrong.</h3>
+
+<p>Because hardware isn&rsquo;t as helpful as it once was.  Modern <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0553a/CHDBIJJE.html" target="_blank">processor</a> and <a href="https://en.cppreference.com/w/cpp/language/memory_model" target="_blank">language</a> memory models reduce the available consistency assumptions so much that it&rsquo;s possible to <a href="https://www.cl.cam.ac.uk/~pes20/cpp/notes42.html" target="_blank">read values which were never written</a>, justify your own reads, and arbitrarily miss updates from concurrent threads. Simple patterns, like initializing an object and then handing it off directly to a newly-spawned thread, are <em>simply not guaranteed to work</em>.</p>
+
+<h3 id="and-distribution-makes-it-harder">And distribution makes it harder.</h3>
+
+<p>In a distributed setting, the costs of using stronger consistency models grow exponentially with the number of replicas in your system (essential for fault-tolerance) and the distance between these replicas (essential for global performance and availability).  While there are a lot of good people doing excellent work to try and bring strongly-consistent shared data to a geo-distributed setting, the fundamentals are still not in our favor.  And, far more urgently, major parts of the web have already moved to weaker consistency models.</p>
+
+<h3 id="we-re-going-to-fix-that-or-at-least-help">We&rsquo;re going to fix that. Or at least help.</h3>
+
+<p>This project aims to bring the power of programming languages to bear on the world of weakly-consistent distributed programming.  Our secret sauce is <a href="https://dl.acm.org/citation.cfm?id=360056" target="_blank">information flow</a>, a key technology borrowed from the security literature and applied with new life here.  Using information flow, it&rsquo;s possible to ensure that weakly-consistent observations can never unduly influence strongly-consistent computations; it makes the points of crossover explicit, statically requiring that programmers upgrade the consistency of their observations when appropriate.</p>
+
+<p>This technique is powerful; for more details, see our <a href="../../publication/mixt">paper</a>  from <a href="https://conf.researchr.org/home/pldi-2018" target="_blank">PLDI 2018</a>.</p>
+
+<h3 id="and-we-re-not-done-yet">And we&rsquo;re not done yet.</h3>
+
+<p>There are a lot of excellent ideas out there that have their own ways of ensuring weak consistency doesn&rsquo;t mean weak guarantees; everything from <a href="https://link.springer.com/chapter/10.1007%2F978-3-642-24550-3_29" target="_blank">data</a> <a href="https://link.springer.com/chapter/10.1007/978-3-642-31057-7_14" target="_blank">types</a> with <a href="https://dl.acm.org/citation.cfm?id=2502326" target="_blank">guaranteed</a> <a href="https://dl.acm.org/citation.cfm?id=2790525" target="_blank">convergence</a>, to techniques for guaranteeing <a href="https://dl.acm.org/citation.cfm?id=2737981" target="_blank">only</a> what <a href="https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-liu_jed.pdf" target="_blank">computations</a> <a href="https://dl.acm.org/citation.cfm?id=2723720" target="_blank">need</a>, and a whole host in-between.  We believe that there are many unrealized synergies between our established information-flow approach and these robust alternate methods.  We&rsquo;re taking advantage of these synergies to build a new language for programming distributed systems.</p>
+
+<h3 id="scoped-strong-semantic-consistency-is-the-goal">Scoped strong semantic consistency is the goal.</h3>
+
+<p>This property comes under a lot of different names; you may have heard it as strong eventual consistency, or convergence, or full-program commutativity to name just a few.  Simply stated, this is the property that all observable effects generated by your program under weakly-consistent, asynchronous replication&mdash;any way in which it interacts with the outside world&mdash;would still be generated under a perfectly-consistent, sequential execution (given the same environment and inputs).  It says that every witness to weakly-consistent replication, every race condition, every speculative execution is in fact justified; we have, somehow, always &ldquo;guessed&rdquo; right.  This property is exceptionally strong (in fact, it&rsquo;s likely too strong), but it makes a noble goal; we want to empower programmers with the guarantee that their <em>entire program</em> will be consistent by default, while providing them the flexibility to break these guarantees with clear-eyed intention; and we want to preserve these guarantees across the great majority of the program even in the presence of small intentional violations.  A new programming paradigm is coming, as fast as we can write it down.  Watch this space!</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/~milano/tags/transactions/">Transactions</a>
+  
+  <a class="badge badge-light" href="/~milano/tags/consistency/">Consistency</a>
+  
+  <a class="badge badge-light" href="/~milano/tags/programming-languages/">Programming Languages</a>
+  
+  <a class="badge badge-light" href="/~milano/tags/distributed-systems/">Distributed Systems</a>
+  
+</div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/~milano/img/hawaii-face.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/~milano/">Matthew Milano</a></h5>
+    <h6 class="card-subtitle">PhD Candidate, Programming Lanagues and Systems</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:milano@cs.cornell.edu" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/mbpmilano" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://scholar.google.com/citations?user=1XP8XcAAAAAJ" target="_blank" rel="noopener">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/mpmilano" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+      
+      
+      
+        <h2>Posts</h2>
+        
+          
+            
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  
+  
+  
+  <div>
+    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+      <span itemprop="name">Matthew Milano</span>
+    </span>
+    
+  </div>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2018-06-20 00:00:00 -0400 EDT" itemprop="datePublished">
+    <time datetime="2018-11-27 12:48:51 -0500 EST" itemprop="dateModified">
+      Nov 27, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Matthew Milano">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/~milano/post/mixt-tr/#disqus_thread"></a>
+  
+
+  
+
+  
+
+</div>
+
+
+  
+  
+  
+  
+  <a href="/~milano/post/mixt-tr/">
+      <img src="/~milano/post/mixt-tr/featured_hubd900b35ac426f44a111d4eea6e9233b_454844_918x517_fill_q90_box_smart1_2.png" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/~milano/post/mixt-tr/" itemprop="url">Mixing Consistency with MixT: Technical Report Available!</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    <p>Presenting MixT, our language for sanely mixing distinct consistency levels within a single transaction. Now in Tech Report form!</p>
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/~milano/post/mixt-tr/" class="btn btn-outline-primary my-1">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+          
+        
+      
+
+      
+      
+      
+      
+        <h2>Publications</h2>
+        
+          
+            <div class="pub-list-item card-simple" itemscope itemtype="http://schema.org/CreativeWork">
+
+  
+  
+  
+
+  <h3 class="article-title" itemprop="name">
+    <a href="/~milano/publication/mixt/" itemprop="url">MixT: A Language for Mixing Consistency in Geodistributed Transactions</a>
+  </h3>
+
+  <div class="pub-abstract" itemprop="text">
+    
+    
+    
+  </div>
+
+  <div class="pub-authors" itemprop="author">
+    
+    Matthew Milano, Andrew C. Myers
+    
+  </div>
+
+  <div class="pub-publication">
+    
+    <em>Proceedings of the 39th ACM SIGPLAN Conference on Programming Language Design and Implementation</em>,
+    
+    2018
+  </div>
+
+  <div class="btn-links">
+    
+
+
+
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://doi.acm.org/10.1145/3192366.3192375" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/~milano/publication/mixt/mixt.bib">
+  Cite
+</button>
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/~milano/project/languages-for-distribution/">
+    Project
+  </a>
+  
+
+
+
+
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://doi.org/10.1145/3192366.3192375" target="_blank" rel="noopener">
+  DOI
+</a>
+
+
+
+  </div>
+
+</div>
+
+          
+        
+          
+            <div class="pub-list-item card-simple" itemscope itemtype="http://schema.org/CreativeWork">
+
+  
+  
+  
+
+  <h3 class="article-title" itemprop="name">
+    <a href="/~milano/publication/mm-16-tr/" itemprop="url">Mixing Consistency in Geodistributed Transactions: Technical Report</a>
+  </h3>
+
+  <div class="pub-abstract" itemprop="text">
+    
+    
+    
+  </div>
+
+  <div class="pub-authors" itemprop="author">
+    
+    Matthew P. Milano, Andrew C. Myers
+    
+  </div>
+
+  <div class="pub-publication">
+    
+    2016
+  </div>
+
+  <div class="btn-links">
+    
+
+
+
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://hdl.handle.net/1813/44710" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/~milano/publication/mm-16-tr/mm-16-tr.bib">
+  Cite
+</button>
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/~milano/project/languages-for-distribution/">
+    Project
+  </a>
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+</div>
+
+          
+        
+      
+
+      
+      
+      
+      
+        <h2>Talks</h2>
+        
+          
+            <div class="card-simple" itemscope itemtype="http://schema.org/Event">
+
+  
+  
+  
+
+  <h3 class="article-title" itemprop="name">
+    <a href="/~milano/talk/mixt/" itemprop="url">MixT talk</a>
+  </h3>
+
+  <div class="talk-metadata" itemprop="startDate">
+    
+    Jun 20, 2018
+    
+      4:35 PM
+      
+        &mdash; 5:00 PM
+      
+    
+  </div>
+
+  <div class="talk-metadata">
+    
+    PLDI 2018
+    
+  </div>
+
+  <div class="talk-abstract" itemprop="text">
+    
+    Presenting MixT, a domain-specific programming language for mixed-consistency transactions
+    
+  </div>
+
+  <div class="btn-links">
+    
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/~milano/project/languages-for-distribution/">
+    Project
+  </a>
+  
+
+
+
+
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.youtube.com/watch?v=DE0aBd4W-kA" target="_blank" rel="noopener">
+  Video
+</a>
+
+
+
+
+
+  </div>
+
+</div>
+
+          
+        
+      
+    
+
+  </div>
+</article>
+
+
+<div class="article-container article-widget">
+  <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="http://www.cs.cornell.edu/~milano/project/derecho/" rel="prev">Derecho: Programming the Datacenter</a>
+  </div>
+  
+</div>
+
+</div>
+
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/~milano/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c&#43;&#43;.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//www-cs-cornell-edu-milano.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/~milano/js/academic.min.14cafafda844d960749b7551524d1c3a.js"></script>
+
+    
+
+  </body>
+</html>
+

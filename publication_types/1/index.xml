@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1 on Matthew Milano</title>
+    <link>http://www.cs.cornell.edu/~milano/publication_types/1/</link>
+    <description>Recent content in 1 on Matthew Milano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 01 Jun 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="http://www.cs.cornell.edu/~milano/publication_types/1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MixT: A Language for Mixing Consistency in Geodistributed Transactions</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/mixt/</link>
+      <pubDate>Fri, 01 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/mixt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Coalgebraic Decision Procedure for NetKAT</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/netkat/</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/netkat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python: The Full Monty</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/python/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 -0500</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/python/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

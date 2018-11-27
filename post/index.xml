@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Matthew Milano</title>
+    <link>http://www.cs.cornell.edu/~milano/post/</link>
+    <description>Recent content in Posts on Matthew Milano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://www.cs.cornell.edu/~milano/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mixing Consistency with MixT: Technical Report Available!</title>
+      <link>http://www.cs.cornell.edu/~milano/post/mixt-tr/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/post/mixt-tr/</guid>
+      <description>It&amp;rsquo;s been a long wait. It was our great pleasure to present the MixT paper at this year&amp;rsquo;s PLDI, but we always felt that the conference version was missing a few details and extra explanations which (we sincerely hope) would go a long way towards explaining the MixT approach to distributed transactions. So it makes us overjoyed to finally make the extended Technical Report of the MixT paper available to the public.</description>
+    </item>
+    
+  </channel>
+</rss>

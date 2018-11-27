@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Matthew Milano</title>
+    <link>http://www.cs.cornell.edu/~milano/tags/</link>
+    <description>Recent content in Tags on Matthew Milano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 20 Jun 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="http://www.cs.cornell.edu/~milano/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Consistency</title>
+      <link>http://www.cs.cornell.edu/~milano/tags/consistency/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/tags/consistency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed Systems</title>
+      <link>http://www.cs.cornell.edu/~milano/tags/distributed-systems/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/tags/distributed-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming Languages</title>
+      <link>http://www.cs.cornell.edu/~milano/tags/programming-languages/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/tags/programming-languages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transactions</title>
+      <link>http://www.cs.cornell.edu/~milano/tags/transactions/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/tags/transactions/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

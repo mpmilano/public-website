@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>4 on Matthew Milano</title>
+    <link>http://www.cs.cornell.edu/~milano/publication_types/4/</link>
+    <description>Recent content in 4 on Matthew Milano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 01 Nov 2017 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="http://www.cs.cornell.edu/~milano/publication_types/4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Building Smart Memories and Cloud Services with Derecho</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/derecho-tr/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/derecho-tr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixing Consistency in Geodistributed Transactions: Technical Report</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/mm-16-tr/</link>
+      <pubDate>Sat, 01 Oct 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/mm-16-tr/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

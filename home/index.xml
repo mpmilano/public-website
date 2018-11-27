@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homes on Matthew Milano</title>
+    <link>http://www.cs.cornell.edu/~milano/home/</link>
+    <description>Recent content in Homes on Matthew Milano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="http://www.cs.cornell.edu/~milano/home/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>http://www.cs.cornell.edu/~milano/home/hero_carousel/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/hero_carousel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Academic</title>
+      <link>http://www.cs.cornell.edu/~milano/home/hero/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/hero/</guid>
+      <description>The highly flexible website framework for Hugo with an extensible plugin mechanism. Create a beautifully simple site in under 10 minutes 🚀 Latest release   Star</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://www.cs.cornell.edu/~milano/home/about/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/about/</guid>
+      <description> Biography Hi! I&amp;rsquo;m a PhD candidate in programming languages and systems at Cornell University, advised by Andrew Myers. My work focuses on programming languages and abstractions for wide-area or large-scale distributed systems; really anything where the round-trip latency for communication is way too high. I&amp;rsquo;m working on programming replicated, distributed systems with Andrew Myers, and also work extensively with Ken Birman and the Derecho group. </description>
+    </item>
+    
+    <item>
+      <title>Skills</title>
+      <link>http://www.cs.cornell.edu/~milano/home/skills/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/skills/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Experience</title>
+      <link>http://www.cs.cornell.edu/~milano/home/experience/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/experience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recent Publications</title>
+      <link>http://www.cs.cornell.edu/~milano/home/publications_selected/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/publications_selected/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Awards</title>
+      <link>http://www.cs.cornell.edu/~milano/home/awards/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/awards/</guid>
+      <description> NDSEG Fellowship (2015) NSF GRFP Honorable Mention (2015) </description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>http://www.cs.cornell.edu/~milano/home/projects/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technical Reports</title>
+      <link>http://www.cs.cornell.edu/~milano/home/publications/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/publications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Selected Talks</title>
+      <link>http://www.cs.cornell.edu/~milano/home/talks_selected/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/talks_selected/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recent &amp; Upcoming Talks</title>
+      <link>http://www.cs.cornell.edu/~milano/home/talks/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/talks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recent Posts</title>
+      <link>http://www.cs.cornell.edu/~milano/home/posts/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/posts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Teaching</title>
+      <link>http://www.cs.cornell.edu/~milano/home/teaching/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/teaching/</guid>
+      <description>CS 2043: Unix Tools and Systems UNIX and UNIX-like systems are increasingly being used on personal computers, mobile phones, web servers, and many other systems. They represent a wonderful family of programming environments useful both to computer scientists and to people in many other fields, such as computational biology and computational linguistics, in which data is naturally represented by strings. This course takes students from shell basics and piping, to regular-expression processing tools, to shell scripting and Python.</description>
+    </item>
+    
+    <item>
+      <title>Tags</title>
+      <link>http://www.cs.cornell.edu/~milano/home/tags/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://www.cs.cornell.edu/~milano/home/contact/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/home/contact/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
