@@ -4,6 +4,22 @@
     
     <url>
     
+      <loc>http://www.cs.cornell.edu/~milano/publication/gallifrey/</loc>
+      <lastmod>2019-04-20T17:47:26-04:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>http://www.cs.cornell.edu/~milano/publication/derecho/</loc>
+      <lastmod>2019-04-20T17:47:26-04:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>http://www.cs.cornell.edu/~milano/publication/mixt-tr/</loc>
       <lastmod>2018-11-27T13:46:40-05:00</lastmod>
     </url>
@@ -37,7 +53,7 @@
     <url>
     
       <loc>http://www.cs.cornell.edu/~milano/publication/mixt/</loc>
-      <lastmod>2018-11-27T12:48:51-05:00</lastmod>
+      <lastmod>2019-04-20T17:47:26-04:00</lastmod>
     </url>
     
   
@@ -109,7 +125,16 @@
     <url>
     
       <loc>http://www.cs.cornell.edu/~milano/publication_types/1/</loc>
-      <lastmod>2018-11-27T12:48:51-05:00</lastmod>
+      <lastmod>2019-04-20T17:47:26-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>http://www.cs.cornell.edu/~milano/publication_types/2/</loc>
+      <lastmod>2019-04-20T17:47:26-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -180,7 +205,7 @@
     <url>
     
       <loc>http://www.cs.cornell.edu/~milano/publication_types/</loc>
-      <lastmod>2018-11-27T12:48:51-05:00</lastmod>
+      <lastmod>2019-04-20T17:47:26-04:00</lastmod>
       <priority>0</priority>
     </url>
     

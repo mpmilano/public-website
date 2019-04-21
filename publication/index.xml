@@ -13,6 +13,24 @@
     
     
     <item>
+      <title>A Tour of Gallifrey, a Language for Geodistributed Programming</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/gallifrey/</link>
+      <pubDate>Thu, 16 May 2019 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/gallifrey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Derecho: Fast State Machine Replication for Cloud Services</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/derecho/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/derecho/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>A Language for Mixing Consistency in Geodistributed Transactions: Technical Report</title>
       <link>http://www.cs.cornell.edu/~milano/publication/mixt-tr/</link>
       <pubDate>Thu, 22 Nov 2018 00:00:00 -0500</pubDate>

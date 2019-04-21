@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 01 Jun 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="http://www.cs.cornell.edu/~milano/publication_types/1/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Tour of Gallifrey, a Language for Geodistributed Programming</title>
+      <link>http://www.cs.cornell.edu/~milano/publication/gallifrey/</link>
+      <pubDate>Thu, 16 May 2019 00:00:00 -0400</pubDate>
+      
+      <guid>http://www.cs.cornell.edu/~milano/publication/gallifrey/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>MixT: A Language for Mixing Consistency in Geodistributed Transactions</title>
